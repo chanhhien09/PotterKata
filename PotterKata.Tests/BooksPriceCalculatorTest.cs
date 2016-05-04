@@ -54,5 +54,17 @@ namespace PotterKata.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void CalculateBookPrices_Book_1_2_3_4_5_Return_375()
+        {
+            var target = new BookPriceCalculator();
+            List<int> boughtBooks = new List<int> { 1, 2, 3, 4, 5 };
+            int expected = 375;
+
+            int actual = target.CalculatePrice(boughtBooks);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
