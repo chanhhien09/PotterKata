@@ -10,9 +10,21 @@ namespace PotterKata.Tests
         [TestMethod]
         public void CalculateBookPrices_Book_1_Return_100()
         {
-            BookPriceCalculator target = new BookPriceCalculator();
-            List<int> boughtBooks = new List<int>();
+            var target = new BookPriceCalculator();
+            List<int> boughtBooks = new List<int>{ 1 };
             int expected = 100;
+
+            int actual = target.CalculatePrice(boughtBooks);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CalculateBookPrices_Book_1_2_Return_190()
+        {
+            var target = new BookPriceCalculator();
+            List<int> boughtBooks = new List<int> { 1, 2 };
+            int expected = 190;
 
             int actual = target.CalculatePrice(boughtBooks);
 
