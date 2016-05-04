@@ -7,7 +7,10 @@ namespace PotterKata
     {
         public int CalculatePrice(List<int> boughtBooks)
         {
-            return 100;
+            if (boughtBooks.Count == 1)
+                return 100;
+            else
+                return 190;
         }
     }
 }
