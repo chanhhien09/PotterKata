@@ -9,8 +9,10 @@ namespace PotterKata
         {
             if (boughtBooks.Count == 1)
                 return 100;
-            else
+            else if (boughtBooks.Count == 2)
                 return 190;
+            else 
+                return 270;
         }
     }
 }
