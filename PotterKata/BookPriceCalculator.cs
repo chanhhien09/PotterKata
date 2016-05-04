@@ -24,16 +24,18 @@ namespace PotterKata
 
         private int CalculatePricesForDistinctBooks(List<int> distinctBooks)
         {
+            double discount;
             if (distinctBooks.Count == 1)
-                return 100;
+                discount = 1;
             else if (distinctBooks.Count == 2)
-                return 190;
+                discount = 0.95;
             else if (distinctBooks.Count == 3)
-                return 270;
+                discount = 0.9;
             else if (distinctBooks.Count == 4)
-                return 320;
+                discount = 0.8;
             else
-                return 375;
+                discount = 0.75;
+            return (int)(PricePerBook*distinctBooks.Count*discount);
         }
     }
 }
