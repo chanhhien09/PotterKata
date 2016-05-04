@@ -20,15 +20,15 @@ namespace PotterKata
                 List<int> distinctBooks = boughtBooks.Distinct().ToList();
                 foreach (int book in distinctBooks)
                     boughtBooks.Remove(book);
-                price += CalculatePricesForDistinctBooks(distinctBooks);
+                price += CalculatePricesForDistinctBooks(distinctBooks.Count);
             }
 
             return price;
         }
 
-        private int CalculatePricesForDistinctBooks(List<int> distinctBooks)
+        private int CalculatePricesForDistinctBooks(int distinctBooksCount)
         {
-            return (int)(PricePerBook*distinctBooks.Count*DiscountForDistinctBooks[distinctBooks.Count-1]);
+            return (int)(PricePerBook*distinctBooksCount*DiscountForDistinctBooks[distinctBooksCount-1]);
         }
     }
 }
