@@ -7,6 +7,10 @@ namespace PotterKata
     public class BookPriceCalculator
     {
         private int PricePerBook = 100;
+        private double[] DiscountForDistinctBooks = new double[]
+        {
+            1, 0.95, 0.9, 0.8, 0.75
+        };
 
         public int CalculatePrice(List<int> boughtBooks)
         {
@@ -24,18 +28,7 @@ namespace PotterKata
 
         private int CalculatePricesForDistinctBooks(List<int> distinctBooks)
         {
-            double discount;
-            if (distinctBooks.Count == 1)
-                discount = 1;
-            else if (distinctBooks.Count == 2)
-                discount = 0.95;
-            else if (distinctBooks.Count == 3)
-                discount = 0.9;
-            else if (distinctBooks.Count == 4)
-                discount = 0.8;
-            else
-                discount = 0.75;
-            return (int)(PricePerBook*distinctBooks.Count*discount);
+            return (int)(PricePerBook*distinctBooks.Count*DiscountForDistinctBooks[distinctBooks.Count-1]);
         }
     }
 }
