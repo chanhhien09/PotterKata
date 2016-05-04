@@ -5,8 +5,11 @@ namespace PotterKata
 {
     public class BookPriceCalculator
     {
+        private int PricePerBook = 100;
+
         public int CalculatePrice(List<int> boughtBooks)
         {
+
             if (boughtBooks.Count == 1)
                 return 100;
             else if (boughtBooks.Count == 2)
@@ -18,5 +21,6 @@ namespace PotterKata
             else
                 return 375;
         }
+
     }
 }
