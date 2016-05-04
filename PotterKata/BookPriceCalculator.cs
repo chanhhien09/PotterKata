@@ -10,12 +10,10 @@ namespace PotterKata
 
         public int CalculatePrice(List<int> boughtBooks)
         {
-            List<List<int>> setOfDistinctBooks = new List<List<int>>();
             int price = 0;
             while (boughtBooks.Count != 0)
             {
                 List<int> distinctBooks = boughtBooks.Distinct().ToList();
-                setOfDistinctBooks.Add(distinctBooks);
                 foreach (int book in distinctBooks)
                     boughtBooks.Remove(book);
                 price += CalculatePricesForDistinctBooks(distinctBooks);
@@ -24,15 +22,15 @@ namespace PotterKata
             return price;
         }
 
-        private int CalculatePricesForDistinctBooks(List<int> boughtBooks)
+        private int CalculatePricesForDistinctBooks(List<int> distinctBooks)
         {
-            if (boughtBooks.Count == 1)
+            if (distinctBooks.Count == 1)
                 return 100;
-            else if (boughtBooks.Count == 2)
+            else if (distinctBooks.Count == 2)
                 return 190;
-            else if (boughtBooks.Count == 3)
+            else if (distinctBooks.Count == 3)
                 return 270;
-            else if (boughtBooks.Count == 4)
+            else if (distinctBooks.Count == 4)
                 return 320;
             else
                 return 375;
